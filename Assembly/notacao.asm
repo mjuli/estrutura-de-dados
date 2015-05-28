@@ -1,10 +1,5 @@
 # Notacao infixa para pos-fixa
 
-.data
-#p1: 	.asciiz "\n"
-#p2	.asciiz "b"
-#p3:	.asciiz "\n"
-
 .text
 main:	lui $7, 0x1002 #registrador q vai ser usado para salvar os dados da pilha
 
@@ -24,7 +19,7 @@ main:	lui $7, 0x1002 #registrador q vai ser usado para salvar os dados da pilha
 	# $22 -> salva prioridade do ultimo operador
 	
 ler:	lui $4, 0x1001 #endereço para salvar a operação
-	addi $5, $0, 21 #tamanho maximo da string: 20 (n-1)
+	addi $5, $0, 31 #tamanho maximo da string: 30 (n-1)
 	addi $2, $0, 8 #recebe a operaçao(string) e salva na memoria
 	syscall
 	
@@ -185,5 +180,3 @@ terminar: #imprime os ultimos operadores
 
 end:	addi $2, $0, 10 #Finaliza
 	syscall
-	
-	
